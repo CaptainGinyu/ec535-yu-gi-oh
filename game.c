@@ -11,6 +11,7 @@ struct card_info{
 } card[3];
 int main()
 {
+	FILE *fp = NULL;
 	int x=0;
 	int i=0;
 	for (i=0;i<=1;i++)
@@ -31,8 +32,12 @@ int main()
 		//wait for button
 		if(ca>=0&&ca<3)
 			player[x].monster=ca;
-		for (i=0;i<=1; i++)
+		fp = fopen("game.dat", "w+");
+		fprintf(fp, "%d ", x);
+		for (i=0;i<=1; i++){
 			printf("player%d: %d %d %d\n",i,player[i].life, player[i].monster, card[player[i].monster].atk);
+			fprintf(fp,"%d %d %d ",player[i].life, player[i].monster, card[player[i].monster].atk);}
+		fclose(fp);
 		//enter second phase
 		//attack or not
 		if (player[x].monster>=0)
@@ -61,8 +66,12 @@ int main()
 				}
 			}
 		}
-		for (i=0;i<=1; i++)
+		fp = fopen("game.dat", "w+");
+		fprintf(fp, "%d ", x);
+		for (i=0;i<=1; i++){
 			printf("player%d: %d %d %d\n",i,player[i].life, player[i].monster, card[player[i].monster].atk);
+			fprintf(fp,"%d %d %d ",player[i].life, player[i].monster, card[player[i].monster].atk);}
+		fclose(fp);
 		x=abs(x-1);
 	}
 	int win;
