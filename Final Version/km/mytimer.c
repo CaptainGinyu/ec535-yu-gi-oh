@@ -62,6 +62,7 @@ static int button = 0;
 static int fasync_major = 61;
 struct fasync_struct *async_queue; /* asynchronous readers */
 
+//set interrupt function for button 0
 irqreturn_t gpio_irq0(int irq, void *dev_id, struct pt_regs *regs)
 {
 	button=0;
@@ -70,6 +71,7 @@ irqreturn_t gpio_irq0(int irq, void *dev_id, struct pt_regs *regs)
 	return IRQ_HANDLED;
 }
 
+//set interrupt function for button 1
 irqreturn_t gpio_irq1(int irq, void *dev_id, struct pt_regs *regs)
 {
 	button=1;
@@ -80,8 +82,8 @@ irqreturn_t gpio_irq1(int irq, void *dev_id, struct pt_regs *regs)
 
 static int fasync_init(void) {
 	int result;
-	int irq0 = IRQ_GPIO(29);
-	int irq1 = IRQ_GPIO(30);
+	int irq0 = IRQ_GPIO(29);  //set GPIO 29 as button0
+	int irq1 = IRQ_GPIO(30);  //set GPIO 30 as button1
 	gpio_direction_input(29);
 	gpio_direction_input(30);
 	/* Registering device */
