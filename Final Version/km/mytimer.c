@@ -82,8 +82,8 @@ irqreturn_t gpio_irq1(int irq, void *dev_id, struct pt_regs *regs)
 
 static int fasync_init(void) {
 	int result;
-	int irq0 = IRQ_GPIO(29);  //set GPIO 29 as button0
-	int irq1 = IRQ_GPIO(30);  //set GPIO 30 as button1
+	int irq0 = IRQ_GPIO(29);  //set GPIO 29 as button 0
+	int irq1 = IRQ_GPIO(30);  //set GPIO 30 as button 1
 	gpio_direction_input(29);
 	gpio_direction_input(30);
 	/* Registering device */
