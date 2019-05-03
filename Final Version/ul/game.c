@@ -97,17 +97,6 @@ int main(int argc, char **argv)
 		player[i].mode = 0;
 		player[i].survive = 0;
 	}
-	/*
-	card[0].atk = 3000;
-	card[1].atk = 2000;
-	card[2].atk = 1000;
-	card[0].def = 1000;
-	card[1].def = 2000;
-	card[2].def = 3000;
-	strcpy(card[0].ID,"190213203224");
-	strcpy(card[1].ID,"222155172252");
-	strcpy(card[2].ID,"14218735211");
-	*/
 
 	//main game logic starts
 	while(x<=1&&player[0].life>0&&player[1].life>0)
